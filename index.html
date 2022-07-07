@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tindie - Find Perfect Indie Games</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body>
+        <header class="header"><h1>Tindie</h1><hr><h2>Find Your Perfect Indie Game</h2></header>
+
+        <main>
+            <nav><ul>
+                <li id="swipe">Swipe</li>
+                <li id="matches">Matches</li>
+                <li id="stats">Stats</li>
+            </ul></nav>
+            <div id="carousel">
+                <section class="parent" id="swipesection">
+                    <img class="image" ID="img1" src="./images/BoI/img1.jpg">
+                    <div class="bio">
+                        <h3 id="gametitle">The Binding of Isaac: Rebirth</h3><hr>
+                        <section id="bio">
+                            The Binding of Isaac: Rebirth is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.
+                        </section>
+                    </div>
+                    <img class="image" ID="img2" src="./images/BoI/img2.jpg">
+                    <div class="gamestats">
+                        <h4 class="stat">Recent Steam Reviews: <span id="reviewscores">Overwhelmingly Positive</span></h3><hr>
+                        <ul class="tags">
+                            <li class="tag">Roguelike</li>
+                            <li class="tag">Shooter</li>
+                            <li class="tag">Zelda Inspired</li>
+                            <li class="tag">High Replay Value</li>
+                            <li class="tag">Controller Support</li>
+                        </ul>
+                    </div>
+                    <img class="image" ID="img3" src="./images/BoI/img3.jpg">
+                </section>
+
+                <section class="parent" id="matchessection">
+                    <h3>MATCHES</h3>
+                    <div class="match">
+                        <img class="profilepic" src="./images/BoI/pfp.jpg">
+                        <span class="gamename">The Binding of Isaac: Rebirth</span>
+                    </div>   
+                </section>
+            </div>
+        </main>
+
+    <script src="app.js" charset="UTF-8"></script>
+    <script src="scraper.js" charset="UTF-8"></script>
+    <script src="games.js" charset="UTF-8"></script>
+    </body>
+</html>

@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: hsl(270, 9%, 31%);
+    color: whitesmoke;
+}
+
+.header {
+    background-color: hsl(270, 8%, 17%);
+    padding: 1vh;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+header h2 {
+    margin-top: 1vh;
+}
+
+h3 {
+    margin: 1vh;
+    font-size: 5vmin;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+nav ul li {
+    text-align: center;
+    display: inline-block;
+    border-bottom: 0px;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    font-size: 4vmin;
+    border: 1px solid white;
+    width: 12vw;
+}
+
+nav ul li:hover {
+    border: 1px solid hsl(270, 50%, 17%);
+    background-color: whitesmoke;
+    color:hsl(270, 8%, 17%);
+    cursor: pointer;
+}
+
+main {
+    margin: auto;
+    padding-top: 1vh;
+    width: 60%;
+    height: 100vh;
+    background-color: hsl(270, 8%, 46%);
+}
+
+#carousel {
+    margin: auto;
+    height: 85%;
+    width: 80%;
+    overflow-x: scroll;
+    position: relative;
+}
+
+.parent {
+    margin: auto;
+    margin-top: 1vh;
+    background-color: hsl(270, 50%, 17%);
+    height: 85%;
+    position: absolute;
+    cursor: grab;
+    overflow-y: scroll;
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px black;
+}
+
+.bio {
+    background-color: whitesmoke;
+    color:hsl(270, 8%, 17%);
+    padding-bottom: 2vh;
+    width: 95%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#bio {
+    margin: auto;
+    margin-top: 1vh;
+    width: 80%;
+    text-align: justify;
+}
+
+.image {
+    width: 95%;
+    margin: 1vh;
+    border-radius: 10px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 3px 3px 10px black;
+}
+
+#gametitle {
+    font-size: 3vh;
+    margin: 1vh;
+}
+
+#matchessection {
+    display: none;
+}
+
+.match {
+    background-color: whitesmoke;
+    color:hsl(270, 8%, 17%);
+    padding: 2vh;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.profilepic {
+    width: 10vw;
+}
+
+.gamename {
+    font-size: 4vh;
+    padding-left: 1vw;
+}
+
+.gamestats {
+    margin: auto;
+    padding: 1vmin;
+    background-color: whitesmoke;
+    color:hsl(270, 8%, 17%);
+    padding-bottom: 2vh;
+    width: 92%;
+    border-radius: 10px;
+}
+
+.tags {
+    padding-top: 1vmin;
+}
+
+
+
+/* Custom Scroll Bar */
+ .parent::-webkit-scrollbar {
+     width: 12px;
+ }
+ 
+ .parent::-webkit-scrollbar-track {
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+     box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+     border-radius: 10px;
+ }
+ 
+ .parent::-webkit-scrollbar-thumb {
+     border-radius: 10px;
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+     box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+ }
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 1400px) {
+    main {
+        width: 75%;
+    }
+    .parent {
+        width: 75%;
+    }
+    nav ul li {
+        width: 15vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        width: 95%;
+    }
+    .parent {
+        width: 95%;
+        height: 80%;
+    }
+    nav ul li {
+        width: 20vw;
+    }
+}
