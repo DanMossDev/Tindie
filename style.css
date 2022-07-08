@@ -6,6 +6,16 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+#cover {
+    position: fixed; 
+    height: 100%; 
+    width: 100%; 
+    top:0; 
+    left: 0; 
+    background: #000; 
+    z-index:9999;
+}
+
 body {
     background-color: hsl(270, 9%, 31%);
     color: whitesmoke;

@@ -49,7 +49,13 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
         `
     })
     lang.innerHTML = languagesHTML
+
+    loaded()
 }
 
+
+function loaded() {
+    $("#cover").hide();
+};
 
 initialiseData()
