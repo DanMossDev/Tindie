@@ -49,7 +49,7 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
         `
     })
     lang.innerHTML = languagesHTML
-    setTimeout(loaded, 1000)
+    setTimeout(loaded, 2000)
 }
 
 
