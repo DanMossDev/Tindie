@@ -29,7 +29,15 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
     bio.textContent = description
     developer.textContent = details.Developer
     publisher.textContent = details.Publisher
-    mov.innerHTML = `<source src="${links[0]}" type="video/webm"></source>`
+
+    let platform = navigator?.userAgentData?.platform || navigator?.platform || 'unknown'
+    
+    let movLink = links[0]
+    if (platform === 'iPhone') {
+        movLink = movLink.replace('.webm', '.mp4')
+        movLink = movLink.replace('_vp9', '')
+    }
+    mov.innerHTML = `<source src="${movLink}"></source>`
     img1.src = links[1]
     img2.src = links[2]
     img3.src = links[3]
