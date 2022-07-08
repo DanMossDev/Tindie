@@ -11,9 +11,15 @@ body {
     color: whitesmoke;
 }
 
+#box {
+    display: flex;
+    flex-flow: column;
+}
+
 .header {
     background-color: hsl(270, 8%, 17%);
     padding: 1vh;
+    flex: 0 1 auto;
 }
 
 h1 {
@@ -34,6 +40,7 @@ nav ul {
     padding: 0;
     list-style-type: none;
     margin: 1rem 0;
+    flex: 1 1 auto;
 }
 
 nav ul li {
@@ -68,6 +75,7 @@ main {
     width: 80%;
     overflow-x: scroll;
     position: relative;
+    flex: 0 1 auto;
 }
 
 .parent {
@@ -179,9 +187,6 @@ main {
     main {
         width: 75%;
     }
-    .parent {
-        width: 75%;
-    }
     nav ul li {
         width: 15vw;
     }
@@ -189,11 +194,11 @@ main {
 
 @media screen and (max-width: 1000px) {
     main {
-        width: 95%;
+        width: 100%;
+        padding: 0;
     }
-    .parent {
+    #carousel {
         width: 95%;
-        height: 80%;
     }
     nav ul li {
         width: 20vw;
