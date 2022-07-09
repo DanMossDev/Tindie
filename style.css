@@ -135,26 +135,6 @@ main {
     position: absolute;
 }
 
-#matchessection {
-    display: none;
-}
-
-.match {
-    background-color: whitesmoke;
-    color:hsl(270, 8%, 17%);
-    padding: 2vh;
-    width: 90%;
-    margin: auto;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.profilepic {
-    width: 10vw;
-}
 
 .gamename {
     font-size: 4vh;
@@ -212,6 +192,31 @@ main {
 #no {
     background-color: red;
     left: 50px;
+}
+
+#matchessection {
+    display: none;
+    width: 100%
+}
+
+#matchlist {
+    margin: auto;
+    width: 90%;
+}
+
+#matchlist li {
+    background-color: hsl(270, 8%, 17%);
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+#matchlist li a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+#matchlist li a:hover {
+    filter: drop-shadow(2px 2px 3px black)
 }
 
 /* Custom Scroll Bar */
