@@ -9,8 +9,26 @@ const lang = document.getElementById('languages')
 const bio = document.getElementById('bio')
 const developer = document.getElementById('dev')
 const publisher = document.getElementById('publisher')
+const swipeSection = document.getElementById('swipesection')
+
+const yes = document.getElementById('yes')
+const no = document.getElementById('no')
 
 let data
+
+yes.addEventListener('click', () => {
+    //add to likes
+    swipeSection.scrollTop = 0
+    randomGame()
+})
+
+no.addEventListener('click', () => {
+    //ignore and move on
+    swipeSection.scrollTop = 0
+    randomGame()
+})
+
+
 
 const initialiseData = async () => {
     const response = await fetch('https://steam-rolled.herokuapp.com/api/games')
@@ -38,6 +56,8 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
         movLink = movLink.replace('_vp9', '')
     }
     mov.innerHTML = `<source src="${movLink}"></source>`
+    mov.load()
+    console.log(mov.innerHTML)
     img1.src = links[1]
     img2.src = links[2]
     img3.src = links[3]
@@ -62,7 +82,7 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
 }
 
 
-function loaded() {
+function loaded() { //hides black cover when the game has loaded
     $("#cover").hide();
 };
 

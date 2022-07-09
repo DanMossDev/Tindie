@@ -8,7 +8,7 @@
 
 #cover {
     position: fixed; 
-    height: 100%; 
+    height: auto; 
     width: 100%; 
     top:0; 
     left: 0; 
@@ -76,7 +76,7 @@ main {
     margin: auto;
     padding-top: 1vh;
     width: 60%;
-    height: 100vh;
+    height: 92vh;
     background-color: hsl(270, 8%, 46%);
 }
 
@@ -131,6 +131,10 @@ main {
     margin: 1vh;
 }
 
+#swipesection {
+    position: absolute;
+}
+
 #matchessection {
     display: none;
 }
@@ -181,7 +185,33 @@ main {
     padding-top: 1vmin;
 }
 
+.choice-button {
+    position: absolute;
+    z-index: 10;
+    font-size: 3vmax;
+    width: 8vmax;
+    height: 8vmax;
+    border-radius: 50%;
+    bottom: 5%;
+}
 
+.choice-button:hover {
+    cursor: pointer;
+}
+
+.choice-button:active {
+    filter: hue-rotate(30deg)
+}
+
+#yes {
+    background-color: green;
+    right: 0;
+}
+
+#no {
+    background-color: red;
+    left: 0;
+}
 
 /* Custom Scroll Bar */
  .parent::-webkit-scrollbar {
