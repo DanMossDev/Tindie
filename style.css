@@ -192,7 +192,8 @@ main {
     width: 8vmax;
     height: 8vmax;
     border-radius: 50%;
-    bottom: 5%;
+    bottom: 15%;
+    opacity: 75%;
 }
 
 .choice-button:hover {
@@ -253,5 +254,20 @@ main {
     }
     nav ul li {
         width: 20vw;
+    }
+
+    .choice-button {
+        font-size: 5vmax;
+        width: 10vmax;
+        height: 10vmax;
+        bottom: 12%;
+    }
+
+    #yes {
+        right: 10px;
+    }
+    
+    #no {
+        left: 10px;
     }
 }
