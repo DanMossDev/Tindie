@@ -56,7 +56,7 @@ function loadNext() {
 
 function addMatch(game) {
     matchlist.innerHTML += `<li>
-    ${game.game_title} - <a href="https://store.steampowered.com/app/${game.app_id}">View on Steam</a>
+    ${game.game_title} - <a href="https://store.steampowered.com/app/${game.app_id}" target="_blank">View on Steam</a>
     </li>
     <hr>`
 }
