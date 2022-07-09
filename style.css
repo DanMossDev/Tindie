@@ -189,10 +189,10 @@ main {
     position: absolute;
     z-index: 10;
     font-size: 3vmax;
-    width: 8vmax;
-    height: 8vmax;
+    width: 7vmax;
+    height: 7vmax;
     border-radius: 50%;
-    bottom: 15%;
+    bottom: 10%;
     opacity: 75%;
 }
 
@@ -206,12 +206,12 @@ main {
 
 #yes {
     background-color: green;
-    right: 0;
+    right: 50px;
 }
 
 #no {
     background-color: red;
-    left: 0;
+    left: 50px;
 }
 
 /* Custom Scroll Bar */
@@ -264,10 +264,10 @@ main {
     }
 
     #yes {
-        right: 10px;
+        right: 5%;
     }
     
     #no {
-        left: 10px;
+        left: 5%;
     }
 }
