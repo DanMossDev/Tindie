@@ -222,7 +222,27 @@ main {
 
 #loginsection {
     display: none;
-    width: 100%
+    width: 100%;
+}
+
+#register-here {
+    font-style: italic;
+    position: absolute;
+    justify-self: center;
+    bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+#register-here:hover {
+    filter: drop-shadow(2px 2px 3px black)
+}
+
+#register-form {
+    display: none;
 }
 
 /* Custom Scroll Bar */

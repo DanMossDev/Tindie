@@ -17,8 +17,10 @@ const matchesSection = document.getElementById('matchessection')
 const loginButton = document.getElementById('login')
 const loginSection = document.getElementById('loginsection')
 const loginResponse = document.getElementById('login-response')
+const registerHere = document.getElementById('register-here')
 
 const submit = document.getElementById('submit')
+const submitReg = document.getElementById('submit-reg')
 const matchlist = document.getElementById('matchlist')
 const seenArray = []
 
@@ -38,10 +40,14 @@ yes.addEventListener('click', () => {
 no.addEventListener('click', () => {loadNext()})
 
 submit.addEventListener('click', () => {login()})
+submitReg.addEventListener('click', () => {register()})
+
 
 swipeButton.addEventListener('click', () => {loadSwipe()})
 matchesButton.addEventListener('click', () => {loadMatches()})
 loginButton.addEventListener('click', () => {loadLogin()})
+registerHere.addEventListener('click', () => {loadRegister()})
+
 
 function loadSwipe() {
     swipeSection.style.display = 'block'
@@ -72,8 +78,37 @@ function loadNext() {
     randomGame()
 }
 
+function loadRegister() {
+    document.getElementById('login-title').textContent = "REGISTER"
+    document.getElementById('login-form').style.display = 'none'
+    document.getElementById('register-form').style.display = 'block'
+}
+
+async function register() {
+    const username = document.getElementById('user-reg').value
+    const password = document.getElementById('password-reg').value
+    try {
+    const response = await fetch('https://steam-rolled.herokuapp.com/api/users/register', {
+        method: 'POST', 
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify({username, password})
+    })
+    const {user_id, msg} = await response.json()
+    userID = user_id
+
+    isLoggedIn = true
+    hideRegister(msg)
+    } catch (err) { 
+        document.getElementById('password').value = ''; 
+        loginResponse.style.display = 'block' 
+        loginResponse.textContent = "Username taken - Or missing username/password"
+    }
+}
+
 async function login() {
-    const email = document.getElementById('email').value
+    const username = document.getElementById('username').value
     const password = document.getElementById('password').value
     try {
     const response = await fetch('https://steam-rolled.herokuapp.com/api/users/login', {
@@ -81,7 +116,7 @@ async function login() {
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },
-        body: JSON.stringify({email, password})
+        body: JSON.stringify({username, password})
     })
     const {user_id, games} = await response.json()
     userID = user_id
@@ -92,7 +127,7 @@ async function login() {
     } catch (err) { 
         document.getElementById('password').value = ''; 
         loginResponse.style.display = 'block' 
-        loginResponse.textContent = "Incorrect email or password; try again."
+        loginResponse.textContent = "Incorrect username or password; try again."
     }
 }
 
@@ -101,6 +136,13 @@ function hideLogin() {
     loginResponse.textContent = "Login Successful!"
     loginResponse.style.display = 'block'
     setTimeout(loadMatches, 2000)
+}
+
+function hideRegister(msg) {
+    document.getElementById('register-form').style.display = 'none'
+    loginResponse.textContent = msg
+    loginResponse.style.display = 'block'
+    setTimeout(loadSwipe, 2000)
 }
 
 function loadPreviousMatches(games) {
@@ -114,6 +156,7 @@ function addOldMatch(game) {
     ${game.game_title} - <a href="https://store.steampowered.com/app/${game.app_id}" target="_blank">View on Steam</a>
     </li>
     <hr>`
+    seenArray.push(game)
 }
 
 
