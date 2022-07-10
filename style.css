@@ -220,6 +220,11 @@ main {
     filter: drop-shadow(2px 2px 3px black)
 }
 
+#loginsection {
+    display: none;
+    width: 100%
+}
+
 /* Custom Scroll Bar */
  .parent::-webkit-scrollbar {
      width: 12px;
