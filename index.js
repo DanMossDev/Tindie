@@ -31,7 +31,7 @@ let data
 let currentGame
 let userID
 let isLoggedIn = false
-
+let isRegistering = false
 
 yes.addEventListener('click', () => {
     addMatch(currentGame)
@@ -46,7 +46,9 @@ submitReg.addEventListener('click', () => {register()})
 swipeButton.addEventListener('click', () => {loadSwipe()})
 matchesButton.addEventListener('click', () => {loadMatches()})
 loginButton.addEventListener('click', () => {loadLogin()})
-registerHere.addEventListener('click', () => {loadRegister()})
+registerHere.addEventListener('click', () => {
+    isRegistering ? loadLoginForm() : loadRegister()
+})
 
 
 function loadSwipe() {
@@ -79,9 +81,21 @@ function loadNext() {
 }
 
 function loadRegister() {
+    registerHere.textContent = "Return to login"
     document.getElementById('login-title').textContent = "REGISTER"
     document.getElementById('login-form').style.display = 'none'
     document.getElementById('register-form').style.display = 'block'
+
+    isRegistering = true
+}
+
+function loadLoginForm() {
+    registerHere.textContent = "Need to register? Click here!"
+    document.getElementById('login-title').textContent = "LOGIN"
+    document.getElementById('login-form').style.display = 'block'
+    document.getElementById('register-form').style.display = 'none'
+
+    isRegistering = false
 }
 
 async function register() {
