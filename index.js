@@ -1,4 +1,6 @@
 //DOM cache
+
+//Swipe Page
 const title = document.getElementById('gametitle')
 const mov = document.getElementById('mov')
 const img1 = document.getElementById('img1')
@@ -9,25 +11,32 @@ const lang = document.getElementById('languages')
 const bio = document.getElementById('bio')
 const developer = document.getElementById('dev')
 const publisher = document.getElementById('publisher')
+const yes = document.getElementById('yes')
+const no = document.getElementById('no')
 
+//Moving between pages
 const swipeButton = document.getElementById('swipe')
 const swipeSection = document.getElementById('swipesection')
 const matchesButton = document.getElementById('matches')
 const matchesSection = document.getElementById('matchessection')
 const loginButton = document.getElementById('login')
 const loginSection = document.getElementById('loginsection')
+
+//Login page
 const loginResponse = document.getElementById('login-response')
 const registerHere = document.getElementById('register-here')
-
 const submit = document.getElementById('submit')
 const submitReg = document.getElementById('submit-reg')
+const loginTitle = document.getElementById('login-title')
+const loginForm = document.getElementById('login-form')
+const registerForm = document.getElementById('register-form')
+
+//Match page
 const matchlist = document.getElementById('matchlist')
+
+//Variables
 const seenArray = []
-
-const yes = document.getElementById('yes')
-const no = document.getElementById('no')
-
-let data
+let listOfGames
 let currentGame
 let userID
 let isLoggedIn = false
@@ -82,18 +91,18 @@ function loadNext() {
 
 function loadRegister() {
     registerHere.textContent = "Return to login"
-    document.getElementById('login-title').textContent = "REGISTER"
-    document.getElementById('login-form').style.display = 'none'
-    document.getElementById('register-form').style.display = 'block'
+    loginTitle.textContent = "REGISTER"
+    loginForm.style.display = 'none'
+    registerForm.style.display = 'block'
 
     isRegistering = true
 }
 
 function loadLoginForm() {
     registerHere.textContent = "Need to register? Click here!"
-    document.getElementById('login-title').textContent = "LOGIN"
-    document.getElementById('login-form').style.display = 'block'
-    document.getElementById('register-form').style.display = 'none'
+    loginTitle.textContent = "LOGIN"
+    loginForm.style.display = 'block'
+    registerForm.style.display = 'none'
 
     isRegistering = false
 }
@@ -121,6 +130,7 @@ async function register() {
     }
 }
 
+
 async function login() {
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
@@ -146,14 +156,14 @@ async function login() {
 }
 
 function hideLogin() {
-    document.getElementById('login-form').style.display = 'none'
+    loginForm.style.display = 'none'
     loginResponse.textContent = "Login Successful!"
     loginResponse.style.display = 'block'
     setTimeout(loadMatches, 2000)
 }
 
 function hideRegister(msg) {
-    document.getElementById('register-form').style.display = 'none'
+    registerForm.style.display = 'none'
     loginResponse.textContent = msg
     loginResponse.style.display = 'block'
     setTimeout(loadSwipe, 2000)
@@ -161,7 +171,7 @@ function hideRegister(msg) {
 
 function loadPreviousMatches(games) {
     games.forEach(game => {
-        addOldMatch(data.filter(el => el.app_id === game)[0])
+        addOldMatch(listOfGames.filter(el => el.app_id === game)[0])
     })
 }
 
@@ -189,16 +199,16 @@ async function addMatch(game) {
 
 const initialiseData = async () => {
     const response = await fetch('https://steam-rolled.herokuapp.com/api/games')
-    data = await response.json()
-    currentGame = data[Math.floor(Math.random() * data.length)]
-    while (seenArray.includes(currentGame)) currentGame = data[Math.floor(Math.random() * data.length)]
+    listOfGames = await response.json()
+    currentGame = listOfGames[randomise(listOfGames)]
+    while (seenArray.includes(currentGame)) currentGame = listOfGames[randomise(listOfGames)]
     seenArray.push(currentGame)
     assignDOM(currentGame)
 }
 
 const randomGame = () => {
-    currentGame = data[Math.floor(Math.random() * data.length)]
-    while (seenArray.includes(currentGame)) currentGame = data[Math.floor(Math.random() * data.length)]
+    currentGame = listOfGames[randomise(listOfGames)]
+    while (seenArray.includes(currentGame)) currentGame = listOfGames[randomise(listOfGames)]
     seenArray.push(currentGame)
     assignDOM(currentGame)
 }
@@ -241,6 +251,9 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
     mov.onload = setTimeout(loaded, 500)
 }
 
+function randomise(array) {
+    return Math.floor(Math.random() * array.length)
+}
 
 function loaded() { //hides black cover when the game has loaded
     $("#cover").hide();
