@@ -31,6 +31,7 @@ body {
     padding: 1vh;
     flex: 0 1 auto;
     box-shadow: 0 0 2px black;
+    z-index: 10;
 }
 
 h1 {
@@ -175,7 +176,7 @@ main {
 
 .choice-button {
     position: absolute;
-    z-index: 10;
+    z-index: 5;
     font-size: 3vmax;
     width: 7vmax;
     height: 7vmax;
