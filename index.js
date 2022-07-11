@@ -176,19 +176,17 @@ function loadPreviousMatches(games) {
 }
 
 function addOldMatch(game) {
-    matchlist.innerHTML += `<li>
+    matchlist.innerHTML += `<hr><li>
     ${game.game_title} - <a href="https://store.steampowered.com/app/${game.app_id}" target="_blank">View on Steam</a>
-    </li>
-    <hr>`
+    </li>`
     seenArray.push(game)
 }
 
 
 async function addMatch(game) {
-    matchlist.innerHTML += `<li>
+    matchlist.innerHTML += `<hr><li>
     ${game.game_title} - <a href="https://store.steampowered.com/app/${game.app_id}" target="_blank">View on Steam</a>
-    </li>
-    <hr>`
+    </li>`
     if (isLoggedIn) await fetch('https://steam-rolled.herokuapp.com/api/users/games', {
         method: 'POST', 
         headers: {

@@ -1,3 +1,12 @@
+:root {
+    --purpblue: hsl(250, 40%, 22%);
+    --lightpurp: #51557E;
+    --brightyellow: hsl(38, 69%, 58%);
+    --grayblue: hsl(219, 45%, 34%);
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -17,8 +26,8 @@
 }
 
 body {
-    background-color: hsl(219, 45%, 34%);
-    color: #E8AA42;
+    background-color: var(--grayblue);
+    color: var(--brightyellow);
 }
 
 #box {
@@ -27,7 +36,7 @@ body {
 }
 
 .header {
-    background-color: #231955;
+    background-color: var(--purpblue);
     padding: 1vh;
     flex: 0 1 auto;
     box-shadow: 0 0 2px black;
@@ -63,19 +72,19 @@ nav ul li {
     padding-left: 2vh;
     padding-right: 2vh;
     font-size: 4vmin;
-    border: 1px solid #E8AA42;
+    border: 1px solid var(--brightyellow);
     width: 12vw;
 }
 
 nav ul li:hover {
-    border: 1px solid #E8AA42;
-    background-color: #E8AA42;
-    color:#231955;
+    border: 1px solid var(--brightyellow);
+    background-color: var(--brightyellow);
+    color: var(--purpblue);
     cursor: pointer;
 }
 
 nav ul li:active {
-    filter: hue-rotate(200deg);
+    background-color: var(--grayblue);
     color: white;
 }
 
@@ -84,7 +93,7 @@ main {
     padding-top: 1vh;
     width: 60%;
     height: 92vh;
-    background-color: #51557E;
+    background-color: var(--lightpurp);
     box-shadow: 0 0 5px black;
 }
 
@@ -100,18 +109,16 @@ main {
 .parent {
     margin: auto;
     margin-top: 1vh;
-    background-color: #231955;
+    background-color: var(--purpblue);
     height: 85%;
     position: absolute;
-    cursor: grab;
     overflow-y: scroll;
     border-radius: 10px;
     box-shadow: 0 0 5px black;
 }
 
 .bio {
-    background-color: whitesmoke;
-    color:hsl(270, 8%, 17%);
+    color: var(--brightyellow);
     padding-bottom: 2vh;
     width: 95%;
     margin: auto;
@@ -130,7 +137,7 @@ main {
     margin: 1vh;
     border-radius: 10px;
     position: relative;
-    z-index: 10;
+    z-index: 5;
     box-shadow: 3px 3px 10px black;
 }
 
@@ -144,17 +151,10 @@ main {
     width: 100%;
 }
 
-
-.gamename {
-    font-size: 4vh;
-    padding-left: 1vw;
-}
-
 .gamestats {
     margin: auto;
     padding: 1vmin;
-    background-color: whitesmoke;
-    color:hsl(270, 8%, 17%);
+    color:var(--brightyellow);
     padding-bottom: 2vh;
     width: 92%;
     border-radius: 10px;
@@ -176,7 +176,7 @@ main {
 
 .choice-button {
     position: absolute;
-    z-index: 5;
+    z-index: 10;
     font-size: 3vmax;
     width: 7vmax;
     height: 7vmax;
