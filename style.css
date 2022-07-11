@@ -17,8 +17,8 @@
 }
 
 body {
-    background-color: hsl(270, 9%, 31%);
-    color: whitesmoke;
+    background-color: #1F4690;
+    color: #E8AA42;
 }
 
 #box {
@@ -27,9 +27,10 @@ body {
 }
 
 .header {
-    background-color: hsl(270, 8%, 17%);
+    background-color: #231955;
     padding: 1vh;
     flex: 0 1 auto;
+    box-shadow: 0 0 2px black;
 }
 
 h1 {
@@ -61,15 +62,20 @@ nav ul li {
     padding-left: 2vh;
     padding-right: 2vh;
     font-size: 4vmin;
-    border: 1px solid white;
+    border: 1px solid #E8AA42;
     width: 12vw;
 }
 
 nav ul li:hover {
-    border: 1px solid hsl(270, 50%, 17%);
-    background-color: whitesmoke;
-    color:hsl(270, 8%, 17%);
+    border: 1px solid #E8AA42;
+    background-color: #E8AA42;
+    color:#231955;
     cursor: pointer;
+}
+
+nav ul li:active {
+    filter: hue-rotate(200deg);
+    color: white;
 }
 
 main {
@@ -77,7 +83,8 @@ main {
     padding-top: 1vh;
     width: 60%;
     height: 92vh;
-    background-color: hsl(270, 8%, 46%);
+    background-color: #51557E;
+    box-shadow: 0 0 5px black;
 }
 
 #carousel {
@@ -92,13 +99,13 @@ main {
 .parent {
     margin: auto;
     margin-top: 1vh;
-    background-color: hsl(270, 50%, 17%);
+    background-color: #231955;
     height: 85%;
     position: absolute;
     cursor: grab;
     overflow-y: scroll;
     border-radius: 10px;
-    box-shadow: 3px 3px 15px black;
+    box-shadow: 0 0 5px black;
 }
 
 .bio {
@@ -206,7 +213,7 @@ main {
 }
 
 #matchlist li {
-    background-color: hsl(270, 8%, 17%);
+    /* background-color: #1F4690; */
     font-size: 1.5rem;
     padding: 1.5rem 0;
 }
