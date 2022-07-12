@@ -24,12 +24,17 @@ const loginSection = document.getElementById('loginsection')
 
 //Login page
 const loginResponse = document.getElementById('login-response')
+const registerResponse = document.getElementById('register-response')
 const registerHere = document.getElementById('register-here')
 const submit = document.getElementById('submit')
 const submitReg = document.getElementById('submit-reg')
 const loginTitle = document.getElementById('login-title')
 const loginForm = document.getElementById('login-form')
 const registerForm = document.getElementById('register-form')
+const loginUser = document.getElementById('username')
+const loginPass = document.getElementById('password')
+const registerUser = document.getElementById('user-reg')
+const registerPass = document.getElementById('password-reg')
 
 //Match page
 const matchlist = document.getElementById('matchlist')
@@ -48,8 +53,31 @@ yes.addEventListener('click', () => {
 })
 no.addEventListener('click', () => {loadNext()})
 
+loginForm.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') login()
+})
 submit.addEventListener('click', () => {login()})
 submitReg.addEventListener('click', () => {register()})
+loginUser.addEventListener('blur', () => {
+    if (!checkUsername(loginUser.value)) {
+        loginResponse.textContent = "Username must be 3 or more characters"
+    }
+})
+registerUser.addEventListener('blur', () => {
+    if (!checkUsername(registerUser.value)) {
+        registerResponse.textContent = "Username must be 3 or more characters"
+    }
+})
+loginPass.addEventListener('blur', () => {
+    if (!checkPassword(loginPass.value)) {
+        loginResponse.textContent = "Password must be 5 characters and contain at least 1 number, 1 lowercase, and 1 uppercase letter"
+    }
+})
+registerPass.addEventListener('blur', () => {
+    if (!checkPassword(registerPass.value)) {
+        registerResponse.textContent = "Password must be 5 characters and contain at least 1 number, 1 lowercase, and 1 uppercase letter"
+    }
+})
 
 
 swipeButton.addEventListener('click', () => {loadSwipe()})
@@ -94,7 +122,7 @@ function loadRegister() {
     loginTitle.textContent = "REGISTER"
     loginForm.style.display = 'none'
     registerForm.style.display = 'block'
-
+    loginResponse.textContent = ''
     isRegistering = true
 }
 
@@ -103,13 +131,14 @@ function loadLoginForm() {
     loginTitle.textContent = "LOGIN"
     loginForm.style.display = 'block'
     registerForm.style.display = 'none'
-
+    registerResponse.textContent = ''
     isRegistering = false
 }
 
 async function register() {
-    const username = document.getElementById('user-reg').value
-    const password = document.getElementById('password-reg').value
+    const username = registerUser.value
+    const password = registerPass.value
+    if (!checkPassword(password) || !checkUsername(username)) return
     try {
     const response = await fetch('https://steam-rolled.herokuapp.com/api/users/register', {
         method: 'POST', 
@@ -247,6 +276,14 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
     lang.innerHTML = languagesHTML
     
     mov.onload = setTimeout(loaded, 500)
+}
+
+function checkUsername(username) {
+    return username.length >= 3
+}
+
+function checkPassword(password) {
+    return (password.length >=5 && /[0-9]/g.test(password) && /[a-z]/g.test(password) && /[A-Z]/g.test(password))
 }
 
 function randomise(array) {
