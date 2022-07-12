@@ -95,15 +95,21 @@ main {
     height: 92vh;
     background-color: var(--lightpurp);
     box-shadow: 0 0 5px black;
+    z-index: 0;
 }
 
 #carousel {
     margin: auto;
     height: 85%;
     width: 80%;
-    overflow-x: scroll;
     position: relative;
     flex: 0 1 auto;
+}
+
+canvas {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }
 
 .parent {
@@ -111,10 +117,10 @@ main {
     margin-top: 1vh;
     background-color: var(--purpblue);
     height: 85%;
-    position: absolute;
     overflow-y: scroll;
     border-radius: 10px;
     box-shadow: 0 0 5px black;
+    overflow-x: visible;
 }
 
 .bio {
@@ -148,7 +154,7 @@ main {
 
 #swipesection {
     position: absolute;
-    width: 100%;
+
 }
 
 .gamestats {
@@ -194,12 +200,12 @@ main {
 }
 
 #yes {
-    background-color: green;
+    background-color: var(--brightyellow);
     right: 50px;
 }
 
 #no {
-    background-color: red;
+    background-color: var(--brightyellow);
     left: 50px;
 }
 
@@ -273,6 +279,12 @@ main {
 
 
 /* Media Queries */
+
+@media (hover: none) {
+    .choice-button {
+        display: none !important;
+    }
+}
 
 @media screen and (max-width: 1400px) {
     main {

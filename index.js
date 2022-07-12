@@ -88,6 +88,32 @@ registerHere.addEventListener('click', () => {
 })
 
 
+let touchStartX = 0
+let touchStartY = 0
+let touchEndX = 0
+swipeSection.addEventListener('touchstart', element => {
+    console.log(element)
+    touchStartX = element.changedTouches[0].screenX
+    touchStartY = element.changedTouches[0].screenY
+})
+swipeSection.addEventListener('touchmove', element => {
+    touchCurrentX = element.changedTouches[0].screenX - touchStartX
+    touchCurrentY = element.changedTouches[0].screenY - touchStartY
+    swipeSection.style.transform = `translate(${touchCurrentX}px, ${touchCurrentY}px)`
+    console.log(touchCurrentX)
+})
+swipeSection.addEventListener('touchend', element => {
+    swipeSection.style.transform = `translate(0px, 0px)`
+    touchEndX = element.changedTouches[0].screenX
+    const delta = touchEndX - touchStartX
+    if (delta > 150) {
+        addMatch(currentGame)
+        loadNext()
+    }
+    if (delta < -150) loadNext()
+})
+
+
 function loadSwipe() {
     swipeSection.style.display = 'block'
     matchesSection.style.display = 'none'
