@@ -287,6 +287,7 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
     }
     mov.innerHTML = `<source src="${movLink}"></source>`
     mov.load()
+    mov.play()
     img1.src = links[1]
     img2.src = links[2]
     img3.src = links[3]
