@@ -98,7 +98,7 @@ swipeSection.addEventListener('touchstart', element => {
     touchStartY = element.changedTouches[0].screenY
 })
 swipeSection.addEventListener('touchmove', element => {
-    if (element.changedTouches[0].screenX - touchStartX > 100 || element.changedTouches[0].screenX - touchStartX < -100) isMove = true
+    if (element.changedTouches[0].screenX - touchStartX > 50 || element.changedTouches[0].screenX - touchStartX < -50) isMove = true
 
     if (isMove) {
         touchCurrentX = element.changedTouches[0].screenX - touchStartX
