@@ -91,19 +91,24 @@ registerHere.addEventListener('click', () => {
 let touchStartX = 0
 let touchStartY = 0
 let touchEndX = 0
+let isMove = false
 swipeSection.addEventListener('touchstart', element => {
     console.log(element)
     touchStartX = element.changedTouches[0].screenX
     touchStartY = element.changedTouches[0].screenY
 })
 swipeSection.addEventListener('touchmove', element => {
-    touchCurrentX = element.changedTouches[0].screenX - touchStartX
-    touchCurrentY = element.changedTouches[0].screenY - touchStartY
-    swipeSection.style.transform = `translate(${touchCurrentX}px, ${touchCurrentY}px)`
-    swipeSection.style.transform += ` skew(${touchCurrentX / -60}deg, ${touchCurrentX / 60}deg)`
-    console.log(touchCurrentX)
+    if (element.changedTouches[0].screenX - touchStartX > 100 || element.changedTouches[0].screenX - touchStartX < -100) isMove = true
+
+    if (isMove) {
+        touchCurrentX = element.changedTouches[0].screenX - touchStartX
+        touchCurrentY = element.changedTouches[0].screenY - touchStartY
+        swipeSection.style.transform = `translate(${touchCurrentX}px, ${touchCurrentY}px)`
+        swipeSection.style.transform += ` skew(${touchCurrentX / -60}deg, ${touchCurrentX / 60}deg)`
+    }
 })
 swipeSection.addEventListener('touchend', element => {
+    isMove = false
     swipeSection.style.transform = `translate(0px, 0px)`
     touchEndX = element.changedTouches[0].screenX
     const delta = touchEndX - touchStartX

@@ -101,11 +101,7 @@ main {
 }
 
 .parent {
-    position: absolute;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
+    margin: auto;
     margin-top: 1vh;
     background-color: var(--purpblue);
     height: 70vh;
@@ -146,6 +142,10 @@ main {
 
 #swipesection {
     position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 .gamestats {
@@ -234,7 +234,7 @@ main {
     font-style: italic;
     position: absolute;
     justify-self: center;
-    bottom: 10%;
+    bottom: 15%;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -281,7 +281,7 @@ main {
     main {
         width: 75%;
     }
-    .parent {
+    #swipesection {
         width: 60%;
         height: 65%;
     }
@@ -298,12 +298,15 @@ main {
     #carousel {
         width: 95%;
     }
-    .parent {
+    #swipesection {
         width: 95%;
         height: 70%;
     }
     nav ul li {
         width: 20vw;
+    }
+    #register-here {
+        bottom: 20%;
     }
 
     .choice-button {
