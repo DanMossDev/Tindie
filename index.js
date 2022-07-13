@@ -100,6 +100,7 @@ swipeSection.addEventListener('touchmove', element => {
     touchCurrentX = element.changedTouches[0].screenX - touchStartX
     touchCurrentY = element.changedTouches[0].screenY - touchStartY
     swipeSection.style.transform = `translate(${touchCurrentX}px, ${touchCurrentY}px)`
+    swipeSection.style.transform += ` skew(${touchCurrentX / -60}deg, ${touchCurrentX / 60}deg)`
     console.log(touchCurrentX)
 })
 swipeSection.addEventListener('touchend', element => {
