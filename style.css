@@ -192,12 +192,12 @@ main {
 
 #yes {
     background-color: var(--brightyellow);
-    right: 50px;
+    right: 22.5%;
 }
 
 #no {
     background-color: var(--brightyellow);
-    left: 50px;
+    left: 22.5%;
 }
 
 #matchessection {
