@@ -1,6 +1,6 @@
-# <center> Tindie </center>
+# <center>Tindie</center>
 
-## <center> https://danmossdev.github.io/Tindie/ </center>
+## <center>https://danmossdev.github.io/Tindie/</center>
 
 ## Intro
 ---
