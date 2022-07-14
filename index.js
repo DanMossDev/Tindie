@@ -273,7 +273,7 @@ async function addMatch(game) {
     matchlist.innerHTML += `<hr><li>
     ${game.game_title} - <a href="https://store.steampowered.com/app/${game.app_id}" target="_blank">View on Steam</a>
     </li>`
-    matchNotification()
+    matchNotification(game)
     if (isLoggedIn) await fetch('https://steam-rolled.herokuapp.com/api/users/games', {
         method: 'POST', 
         headers: {
@@ -283,7 +283,8 @@ async function addMatch(game) {
     })
 }
 
-function matchNotification() {
+function matchNotification(game) {
+    matchName.textContent = game.game_title
     alertBox.style.animation = 'jumpDown 1s'
     cover.style.display = 'block'
     cover.style.backgroundColor = 'transparent'
