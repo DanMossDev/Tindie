@@ -1,4 +1,10 @@
 //DOM cache
+const cover = document.getElementById('cover')
+const alertBox = document.getElementById('alert')
+const matchName = document.getElementById('match-name')
+const goToMatch = document.getElementById('go-to-matches')
+const keepSwiping = document.getElementById('keep-swiping')
+const matchPic = document.getElementById('match-pic')
 
 //Swipe Page
 const title = document.getElementById('gametitle')
@@ -43,7 +49,9 @@ const matchlist = document.getElementById('matchlist')
 const seenArray = []
 let listOfGames
 let currentGame
+let currentPic
 let userID
+let isLoaded = false
 let isLoggedIn = false
 let isRegistering = false
 
@@ -85,6 +93,23 @@ matchesButton.addEventListener('click', () => {loadMatches()})
 loginButton.addEventListener('click', () => {loadLogin()})
 registerHere.addEventListener('click', () => {
     isRegistering ? loadLoginForm() : loadRegister()
+})
+
+keepSwiping.addEventListener('click', () => {
+    alertBox.style.animation = 'fadeOut 1s'
+    setTimeout(() => {
+        cover.style.display = 'none'
+        alertBox.style.display = 'none'
+    }, 1000)
+})
+
+goToMatch.addEventListener('click', () => {
+    alertBox.style.animation = 'fadeOut 1s'
+    setTimeout(() => {
+        loadMatches()
+        cover.style.display = 'none'
+        alertBox.style.display = 'none'
+    }, 1000)
 })
 
 
@@ -248,12 +273,26 @@ async function addMatch(game) {
     matchlist.innerHTML += `<hr><li>
     ${game.game_title} - <a href="https://store.steampowered.com/app/${game.app_id}" target="_blank">View on Steam</a>
     </li>`
+    matchNotification()
     if (isLoggedIn) await fetch('https://steam-rolled.herokuapp.com/api/users/games', {
         method: 'POST', 
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },
-        body: JSON.stringify({app_id: currentGame.app_id, user_id: userID})})
+        body: JSON.stringify({app_id: currentGame.app_id, user_id: userID})
+    })
+}
+
+function matchNotification() {
+    alertBox.style.animation = 'jumpDown 1s'
+    cover.style.display = 'block'
+    cover.style.backgroundColor = 'transparent'
+    alertBox.style.display = 'block'
+    matchPic.src = currentPic
+}
+
+function hideMatchNotification() {
+
 }
 
 const initialiseData = async () => {
@@ -289,6 +328,7 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
     mov.load()
     mov.play()
     img1.src = links[1]
+    currentPic = links[1]
     img2.src = links[2]
     img3.src = links[3]
 
@@ -307,8 +347,7 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
         `
     })
     lang.innerHTML = languagesHTML
-    
-    mov.onload = setTimeout(loaded, 500)
+    if (!isLoaded) mov.onload = setTimeout(loaded, 500)
 }
 
 function checkUsername(username) {
@@ -324,7 +363,8 @@ function randomise(array) {
 }
 
 function loaded() { //hides black cover when the game has loaded
-    $("#cover").hide();
+    isLoaded = true
+    cover.style.display = 'none'
 };
 
 initialiseData()

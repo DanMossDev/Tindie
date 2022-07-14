@@ -9,7 +9,15 @@
     </head>
 
     <body>
-        <div id="cover"></div>
+        <div id="cover">
+            <div id="alert">
+                <h3>It's a Match!</h3>
+                <img id="match-pic" height="70%" width="auto">
+                <p>You matched with <span id="match-name"></span>.</p>
+                <button class="button" id="go-to-matches">See Matches</button>
+                <button class="button" id="keep-swiping">Keep Swiping</button>
+            </div>
+        </div>
             <header class="header"><h1>Tindie</h1><hr><h2>Find Your Perfect Indie Game</h2></header>
             
             <main>
@@ -51,7 +59,6 @@
                 <section class="parent" id="matchessection">
                     <h3>MATCHES</h3>
                     <ul id="matchlist">
-                        <hr>
                     </ul>
                 </section>
 
@@ -71,7 +78,7 @@
                         <input type="text" id="user-reg" name="user"><br><br>
                         <label for="password">Password</label>
                         <input type="password" id="password-reg" name="password"><br><br>
-                        <button type="button" id="submit-reg">Submit</button><br><br>
+                        <button class="button" type="button" id="submit-reg">Submit</button><br><br>
                     </form>
                     <h4 id="register-response"></h4>
                 </section>

@@ -16,13 +16,14 @@
 }
 
 #cover {
+    backdrop-filter: blur(1.5rem);
     position: fixed; 
-    height: auto; 
+    height: 100%;
     width: 100%; 
     top:0; 
     left: 0; 
     background: #000; 
-    z-index:9999;
+    z-index:99;
 }
 
 body {
@@ -225,6 +226,34 @@ main {
     filter: drop-shadow(2px 2px 3px black)
 }
 
+.button {
+    background-color: var(--grayblue);
+    color: var(--brightyellow)
+}
+
+#match-pic {
+    border-radius: 25px;
+}
+
+#alert {
+    color: var(--grayblue);
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 0; 
+    right: 0; 
+    width: 50vw;
+    height: 50vh;
+    margin-left: auto; 
+    margin-right: auto; 
+    background-color: var(--brightyellow);
+    filter: drop-shadow(2px 2px 3px black);
+    z-index: 100;
+
+    animation-fill-mode: forwards;
+}
+
+
 #loginsection {
     display: none;
     width: 100%;
@@ -322,5 +351,31 @@ main {
     
     #no {
         left: 5%;
+    }
+}
+
+
+
+@keyframes jumpDown {
+    from {
+        opacity: 0;
+        transform: translate(0, -5rem)
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(0);
     }
 }
