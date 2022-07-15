@@ -17,6 +17,7 @@
 
 #cover {
     backdrop-filter: blur(1.5rem);
+    -webkit-backdrop-filter: blur(1.5rem);
     position: fixed; 
     height: 100%;
     width: 100%; 
