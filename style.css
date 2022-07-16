@@ -1,3 +1,5 @@
+
+
 :root {
     --purpblue: hsl(250, 40%, 22%);
     --lightpurp: #51557E;
@@ -18,7 +20,7 @@
 #cover {
     backdrop-filter: blur(1.5rem);
     -webkit-backdrop-filter: blur(1.5rem);
-    position: fixed; 
+    position: absolute; 
     height: 100%;
     width: 100%; 
     top:0; 
@@ -213,7 +215,6 @@ main {
 }
 
 #matchlist li {
-    /* background-color: #1F4690; */
     font-size: 1.5rem;
     padding: 1.5rem 0;
 }
@@ -293,6 +294,8 @@ main {
 #register-form {
     display: none;
 }
+
+
 
 /* Custom Scroll Bar */
  .parent::-webkit-scrollbar {
@@ -379,7 +382,63 @@ main {
     }
 }
 
+/* Animations */
+.loader{
+	-webkit-perspective:700px;
+	perspective: 700px;
+    height: 100%;
+    max-width: 100vw;
+    margin-top: 30vh;
+}
 
+.loader>span{
+	font-size: 12vw;
+	font-family: "franklin gothic medium",sans-serif;
+	display: inline-block;
+	animation:flip 2.6s infinite linear;
+	transform-origin:0 70%;
+	transform-style:preserve-3d;
+	-webkit-transform-style:preserve-3d;
+}
+
+@keyframes flip{
+	35%{
+		transform: rotateX(360deg);
+	}
+	100%{
+		transform: rotatex(360deg);
+	}
+}
+
+
+.loader>span:nth-child(even){
+	color:white;
+
+}
+
+.loader>span:nth-child(2){
+	animation-delay: 0.3s;
+}
+
+.loader>span:nth-child(3){
+	animation-delay: 0.6s;
+}
+
+.loader>span:nth-child(4){
+	animation-delay: 0.9s;
+}
+
+.loader>span:nth-child(5){
+	animation-delay: 1.2s;
+}
+
+.loader>span:nth-child(6){
+	animation-delay: 1.5s
+}
+
+.loader>span:nth-child(7){
+	animation-delay: 1.8s
+}
 
 @keyframes jumpDown {
     from {

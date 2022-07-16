@@ -1,5 +1,6 @@
 //DOM cache
 const cover = document.getElementById('cover')
+const loading = document.getElementById('loader')
 const alertBox = document.getElementById('alert')
 const matchName = document.getElementById('match-name')
 const goToMatch = document.getElementById('go-to-matches')
@@ -366,6 +367,7 @@ function randomise(array) {
 function loaded() { //hides black cover when the game has loaded
     isLoaded = true
     cover.style.display = 'none'
+    loading.style.display = 'none'
 };
 
 initialiseData()
