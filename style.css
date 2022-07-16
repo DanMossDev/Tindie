@@ -383,7 +383,7 @@ main {
 }
 
 /* Animations */
-.loader{
+#loader{
 	-webkit-perspective:700px;
 	perspective: 700px;
     height: 100%;
@@ -391,7 +391,7 @@ main {
     margin-top: 30vh;
 }
 
-.loader>span{
+#loader>span{
 	font-size: 12vw;
 	font-family: "franklin gothic medium",sans-serif;
 	display: inline-block;
@@ -411,32 +411,32 @@ main {
 }
 
 
-.loader>span:nth-child(even){
+#loader>span:nth-child(even){
 	color:white;
 
 }
 
-.loader>span:nth-child(2){
+#loader>span:nth-child(2){
 	animation-delay: 0.3s;
 }
 
-.loader>span:nth-child(3){
+#loader>span:nth-child(3){
 	animation-delay: 0.6s;
 }
 
-.loader>span:nth-child(4){
+#loader>span:nth-child(4){
 	animation-delay: 0.9s;
 }
 
-.loader>span:nth-child(5){
+#loader>span:nth-child(5){
 	animation-delay: 1.2s;
 }
 
-.loader>span:nth-child(6){
+#loader>span:nth-child(6){
 	animation-delay: 1.5s
 }
 
-.loader>span:nth-child(7){
+#loader>span:nth-child(7){
 	animation-delay: 1.8s
 }
 

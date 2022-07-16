@@ -110,7 +110,7 @@ goToMatch.addEventListener('click', () => {
         loadMatches()
         cover.style.display = 'none'
         alertBox.style.display = 'none'
-    }, 1000)
+    }, 1100)
 })
 
 
@@ -366,8 +366,8 @@ function randomise(array) {
 
 function loaded() { //hides black cover when the game has loaded
     isLoaded = true
-    cover.style.display = 'none'
     loading.style.display = 'none'
+    cover.style.display = 'none'
 };
 
 initialiseData()
