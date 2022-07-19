@@ -101,7 +101,7 @@ keepSwiping.addEventListener('click', () => {
     setTimeout(() => {
         cover.style.display = 'none'
         alertBox.style.display = 'none'
-    }, 1000)
+    }, 1100)
 })
 
 goToMatch.addEventListener('click', () => {
