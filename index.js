@@ -138,11 +138,11 @@ swipeSection.addEventListener('touchend', element => {
     swipeSection.style.transform = `translate(0px, 0px)`
     touchEndX = element.changedTouches[0].screenX
     const delta = touchEndX - touchStartX
-    if (delta > 150) {
+    if (delta > 125) {
         addMatch(currentGame)
         loadNext()
     }
-    if (delta < -150) loadNext()
+    if (delta < -125) loadNext()
 })
 
 
