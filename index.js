@@ -172,6 +172,7 @@ function loadLogin() {
 
 function loadNext() {
     swipeSection.scrollTop = 0
+    swipeSection.style.animation = 'jumpDown 1s'
     randomGame()
 }
 
@@ -349,6 +350,8 @@ const assignDOM = ({game_title, links: [links], genres, languages, description, 
         `
     })
     lang.innerHTML = languagesHTML
+
+    setTimeout(() => {swipeSection.style.animation = 'none'}, 1000)
     if (!isLoaded) mov.onload = setTimeout(loaded, 500)
 }
 
